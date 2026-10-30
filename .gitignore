@@ -1,0 +1,9 @@
+.framework/
+.gradle/
+**/build/
+local.properties
+signingkey.jks
+*.keystore
+*.jks
+research/
+*.log

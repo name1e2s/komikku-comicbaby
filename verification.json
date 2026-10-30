@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-10-29T06:32:54.139Z",
+  "baseUrl": "https://comic.baby",
+  "checks": [
+    "Popular list, required fields, and distinct second page",
+    "Latest updates and page-number pagination",
+    "JM identifier search",
+    "Chinese keyword search",
+    "Unmatched query response (website may return fallback recommendations)",
+    "Tag filter narrows the catalog and retains the known matching work",
+    "Details, chapter identifiers, numbers and timestamps",
+    "Complete public chapter and sequential page list"
+  ],
+  "pageCount": 97,
+  "limitations": [
+    "No Android device was connected; in-app behavior has not been tested.",
+    "Authenticated/member-only chapters are not supported."
+  ]
+}

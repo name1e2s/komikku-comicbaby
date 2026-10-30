@@ -1,0 +1,27 @@
+{
+  "checkedAt": "2026-10-30T10:06:05.314Z",
+  "version": "1.6.2",
+  "endpoint": "/api/recommend/related/{workId}?limit=18",
+  "checks": [
+    {
+      "workId": "gf6h0qua3q2v5aa4dmt2s6iz",
+      "received": 18,
+      "displayed": 12,
+      "firstRecommendationOpens": true
+    },
+    {
+      "workId": "cmorfwjgkuhihjionhi4og58j",
+      "received": 18,
+      "displayed": 12,
+      "firstRecommendationOpens": true
+    },
+    {
+      "workId": "cmorh3kflqwdojion9du15n5p",
+      "received": 18,
+      "displayed": 12,
+      "firstRecommendationOpens": true
+    }
+  ],
+  "latestUpdatesShapeValid": true,
+  "limitation": "API and build validation only; no connected Android device."
+}
