@@ -1,2 +1,5 @@
 * text=auto eol=lf
 *.apk -text
+*.jar -text
+*.pb -text
+*.png -text

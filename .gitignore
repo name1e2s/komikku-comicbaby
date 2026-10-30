@@ -7,3 +7,6 @@ signingkey.jks
 *.jks
 research/
 *.log
+__pycache__/
+*.pyc
+.venv/

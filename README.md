@@ -18,7 +18,24 @@
 3. 在书源列表搜索“木瓜漫画”；需要启用中文和成人内容显示。
 4. 更新后重启 Komikku，在漫画详情页打开相关推荐。
 
-需要支持扩展 API 1.6 的 Komikku。此仓库提供源码与可手动安装的 APK，尚未提供 Komikku 扩展仓库订阅和自动更新。
+需要 Komikku 1.14.0 或更新版本，支持扩展 API 1.6 和新版插件商店。
+
+## 插件商店
+
+已生成 [`store/`](store) 分发目录，包含 gzip Protobuf `index.pb`、可读索引、兼容入口、图标、APK 和 JAR。索引保留现有签名、包名和书源 ID，无需迁移书架。
+
+**发布状态：分发文件已准备并校验，公开托管待确认。** 本源码仓库保持私有，无法直接作为 Komikku 无认证访问的商店。计划单独托管到 `name1e2s/komikku-comicbaby-repo`；目录中的订阅链接在发布后才可用。
+
+商店格式依据 [Komikku 商店读取实现](https://github.com/komikku-app/komikku/blob/master/data/src/main/java/mihon/data/extension/service/ExtensionStoreService.kt) 和固定版本扩展框架的 `index.proto`。协议文件和 Python 绑定位于 `tools/`，来源为上文框架版本。
+
+维护更新时，先增加模块 `versionCode`、用原签名构建 APK/JAR，再生成分发目录：
+
+```powershell
+python -m pip install -r tools/requirements.txt
+python tools/build_store.py --framework '扩展框架目录' --apksigner 'Android SDK/build-tools/36.0.0/apksigner.bat'
+```
+
+脚本从构建元数据读取版本，校验 APK 签名，保留 64 位书源 ID 精度，并验证 Protobuf/JSON 往返解析。生成的 `store/` 内容应放到分发仓库 `main` 分支根目录；发布更高版本后，Komikku 可在扩展列表检查并安装更新。仅添加商店不会让现有 1.6.2 出现同版本更新提示。
 
 ## 功能
 

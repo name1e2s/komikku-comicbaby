@@ -1,0 +1,33 @@
+{
+  "name": "\u6728\u74dc\u6f2b\u753b ComicBaby",
+  "badgeLabel": "\u6728\u74dc",
+  "signingKey": "d1b8287cb0f1e80b99a1ae60e38734bd5ebbdf62469bf665ad6eddb939ce115e",
+  "contact": {
+    "website": "https://github.com/name1e2s/komikku-comicbaby-repo"
+  },
+  "extensionList": {
+    "extensions": [
+      {
+        "name": "ComicBaby",
+        "packageName": "eu.kanade.tachiyomi.extension.zh.comicbaby",
+        "resources": {
+          "apkUrl": "https://raw.githubusercontent.com/name1e2s/komikku-comicbaby-repo/main/apk/comicbaby-v1.6.2.apk",
+          "iconUrl": "https://raw.githubusercontent.com/name1e2s/komikku-comicbaby-repo/main/icon/eu.kanade.tachiyomi.extension.zh.comicbaby.png",
+          "jarUrl": "https://raw.githubusercontent.com/name1e2s/komikku-comicbaby-repo/main/jar/comicbaby-v1.6.2.jar"
+        },
+        "extensionLib": "1.6",
+        "versionCode": "106002",
+        "versionName": "1.6.2",
+        "contentWarning": "CONTENT_WARNING_NSFW",
+        "sources": [
+          {
+            "id": "4184193314158057816",
+            "name": "\u6728\u74dc\u6f2b\u753b",
+            "language": "zh",
+            "homeUrl": "https://comic.baby"
+          }
+        ]
+      }
+    ]
+  }
+}
