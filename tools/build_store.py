@@ -67,9 +67,9 @@ def main():
         )]),
     )
     (out / 'index.pb').write_bytes(gzip.compress(index.SerializeToString(deterministic=True), mtime=0))
-    (out / 'index.json').write_text(json_format.MessageToJson(index, preserving_proto_field_name=True) + '\n', encoding='utf-8')
+    (out / 'index.json').write_text(json_format.MessageToJson(index, preserving_proto_field_name=True) + '\n', encoding='utf-8', newline='\n')
     # Komikku's legacy entry point uses the wire name index_v2.
-    (out / 'repo.json').write_text(json.dumps({'meta': {'name': index.name, 'shortName': index.badgeLabel, 'website': index.contact.website, 'signingKeyFingerprint': SIGNATURE}, 'index_v2': f'{base}/index.pb'}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    (out / 'repo.json').write_text(json.dumps({'meta': {'name': index.name, 'shortName': index.badgeLabel, 'website': index.contact.website, 'signingKeyFingerprint': SIGNATURE}, 'index_v2': f'{base}/index.pb'}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8', newline='\n')
     shutil.copy2(Path(__file__).resolve().parents[1] / 'LICENSE', out / 'LICENSE')
     (out / 'README.md').write_text(f'''# 木瓜漫画 · Komikku 插件商店
 
@@ -94,9 +94,9 @@ def main():
 本仓库仅分发索引、图标和安装包，不包含源码、签名私钥、登录凭据或网站内容。源码由维护者在独立私有仓库管理。软件使用 [Apache-2.0](LICENSE) 许可证。
 
 本商店是用户自行添加的第三方商店，不代表已收录进 Komikku 官方目录。尚未在 Android 真机或模拟器中验证。
-''', encoding='utf-8')
+''', encoding='utf-8', newline='\n')
     files = [apk_path, jar_path, icon_path, 'index.pb', 'index.json', 'repo.json']
-    (out / 'SHA256SUMS.txt').write_text(''.join(f'{hashlib.sha256((out / p).read_bytes()).hexdigest()}  {p}\n' for p in files), encoding='utf-8')
+    (out / 'SHA256SUMS.txt').write_text(''.join(f'{hashlib.sha256((out / p).read_bytes()).hexdigest()}  {p}\n' for p in files), encoding='utf-8', newline='\n')
     decoded = index_pb2.Index.FromString(gzip.decompress((out / 'index.pb').read_bytes()))
     assert decoded == index
     assert decoded.extensionList.extensions[0].sources[0].id == SOURCE_ID
