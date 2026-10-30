@@ -21,7 +21,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--framework', type=Path, required=True)
     parser.add_argument('--apksigner', type=Path, required=True)
-    parser.add_argument('--repository', default='name1e2s/komikku-comicbaby-repo')
+    parser.add_argument('--repository', default='name1e2s/komikku-comicbaby')
     parser.add_argument('--output', type=Path, default=Path(__file__).resolve().parents[1] / 'store')
     args = parser.parse_args()
     if not re.fullmatch(r'[\w.-]+/[\w.-]+', args.repository):
@@ -54,7 +54,7 @@ def main():
     for path in vector.findall('path'):
         ET.SubElement(svg, 'path', fill=path.attrib[ns + 'fillColor'], d=path.attrib[ns + 'pathData'])
     cairosvg.svg2png(bytestring=ET.tostring(svg), write_to=str(out / icon_path), output_width=192, output_height=192)
-    base = f'https://raw.githubusercontent.com/{args.repository}/main'
+    base = f'https://raw.githubusercontent.com/{args.repository}/main/store'
     index = index_pb2.Index(
         name='木瓜漫画 ComicBaby', badgeLabel='木瓜', signingKey=SIGNATURE,
         contact=index_pb2.Contact(website=f'https://github.com/{args.repository}'),
@@ -91,7 +91,7 @@ def main():
 
 也可[手动下载 APK]({apk_path}?raw=true)。JAR 供兼容客户端使用。安装包和索引校验值见 [SHA256SUMS.txt](SHA256SUMS.txt)。
 
-本仓库仅分发索引、图标和安装包，不包含源码、签名私钥、登录凭据或网站内容。源码由维护者在独立私有仓库管理。软件使用 [Apache-2.0](LICENSE) 许可证。
+本目录分发索引、图标和安装包，源码位于本公开仓库的 [`src/zh/comicbaby`](../src/zh/comicbaby)。签名私钥、登录凭据和网站内容不在仓库中。软件使用 [Apache-2.0](LICENSE) 许可证。
 
 本商店是用户自行添加的第三方商店，不代表已收录进 Komikku 官方目录。尚未在 Android 真机或模拟器中验证。
 ''', encoding='utf-8', newline='\n')

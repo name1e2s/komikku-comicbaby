@@ -9,7 +9,7 @@
 在「更多 → 设置 → 浏览 → 插件商店（扩展商店）」中添加：
 
 ```text
-https://raw.githubusercontent.com/name1e2s/komikku-comicbaby-repo/main/index.pb
+https://raw.githubusercontent.com/name1e2s/komikku-comicbaby/main/store/index.pb
 ```
 
 返回「浏览 → 扩展」刷新，启用中文及成人内容显示，搜索 `ComicBaby` 安装并信任，再在书源中选择“木瓜漫画”。
@@ -18,6 +18,6 @@ https://raw.githubusercontent.com/name1e2s/komikku-comicbaby-repo/main/index.pb
 
 也可[手动下载 APK](apk/comicbaby-v1.6.2.apk?raw=true)。JAR 供兼容客户端使用。安装包和索引校验值见 [SHA256SUMS.txt](SHA256SUMS.txt)。
 
-本仓库仅分发索引、图标和安装包，不包含源码、签名私钥、登录凭据或网站内容。源码由维护者在独立私有仓库管理。软件使用 [Apache-2.0](LICENSE) 许可证。
+本目录分发索引、图标和安装包，源码位于本公开仓库的 [`src/zh/comicbaby`](../src/zh/comicbaby)。签名私钥、登录凭据和网站内容不在仓库中。软件使用 [Apache-2.0](LICENSE) 许可证。
 
 本商店是用户自行添加的第三方商店，不代表已收录进 Komikku 官方目录。尚未在 Android 真机或模拟器中验证。

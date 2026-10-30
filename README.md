@@ -24,7 +24,13 @@
 
 已生成 [`store/`](store) 分发目录，包含 gzip Protobuf `index.pb`、可读索引、兼容入口、图标、APK 和 JAR。索引保留现有签名、包名和书源 ID，无需迁移书架。
 
-**发布状态：分发文件已准备并校验，公开托管待确认。** 本源码仓库保持私有，无法直接作为 Komikku 无认证访问的商店。计划单独托管到 `name1e2s/komikku-comicbaby-repo`；目录中的订阅链接在发布后才可用。
+本公开仓库直接提供插件商店。在 Komikku「更多 → 设置 → 浏览 → 插件商店（扩展商店）」中添加：
+
+```text
+https://raw.githubusercontent.com/name1e2s/komikku-comicbaby/main/store/index.pb
+```
+
+返回「浏览 → 扩展」刷新，启用中文及成人内容显示，搜索 `ComicBaby` 安装并信任，然后在书源中选择“木瓜漫画”。这是可自行添加的第三方商店，不代表收录进官方目录。
 
 商店格式依据 [Komikku 商店读取实现](https://github.com/komikku-app/komikku/blob/master/data/src/main/java/mihon/data/extension/service/ExtensionStoreService.kt) 和固定版本扩展框架的 `index.proto`。协议文件和 Python 绑定位于 `tools/`，来源为上文框架版本。
 
@@ -35,7 +41,7 @@ python -m pip install -r tools/requirements.txt
 python tools/build_store.py --framework '扩展框架目录' --apksigner 'Android SDK/build-tools/36.0.0/apksigner.bat'
 ```
 
-脚本从构建元数据读取版本，校验 APK 签名，保留 64 位书源 ID 精度，并验证 Protobuf/JSON 往返解析。生成的 `store/` 内容应放到分发仓库 `main` 分支根目录；发布更高版本后，Komikku 可在扩展列表检查并安装更新。仅添加商店不会让现有 1.6.2 出现同版本更新提示。
+脚本从构建元数据读取版本，校验 APK 签名，保留 64 位书源 ID 精度，并验证 Protobuf/JSON 往返解析。将生成的 `store/` 目录提交并推送至本仓库 `main` 分支即可发布；发布更高版本后，Komikku 可在扩展列表检查并安装更新。仅添加商店不会让现有 1.6.2 出现同版本更新提示。
 
 ## 功能
 

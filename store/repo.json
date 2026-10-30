@@ -2,8 +2,8 @@
   "meta": {
     "name": "木瓜漫画 ComicBaby",
     "shortName": "木瓜",
-    "website": "https://github.com/name1e2s/komikku-comicbaby-repo",
+    "website": "https://github.com/name1e2s/komikku-comicbaby",
     "signingKeyFingerprint": "d1b8287cb0f1e80b99a1ae60e38734bd5ebbdf62469bf665ad6eddb939ce115e"
   },
-  "index_v2": "https://raw.githubusercontent.com/name1e2s/komikku-comicbaby-repo/main/index.pb"
+  "index_v2": "https://raw.githubusercontent.com/name1e2s/komikku-comicbaby/main/store/index.pb"
 }
